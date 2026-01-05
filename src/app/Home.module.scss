@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    gap: 1.5rem;
+    min-height: 100%;
+    /* overflow: hidden; Removed to allow scrolling */
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
+        overflow-y: visible;
+        width: 100%;
+        /* Force full width */
+    }
+}
+
+.mainContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* overflow: hidden; Removed to allow scrolling */
+    gap: 1.5rem;
+
+    @media (max-width: 1024px) {
+        flex: none;
+        width: 100%;
+        /* Force full width */
+        overflow: visible;
+    }
+}

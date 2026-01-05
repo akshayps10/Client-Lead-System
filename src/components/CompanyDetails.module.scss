@@ -1,0 +1,209 @@
+.container {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    margin-bottom: 1.5rem;
+    width: 100%;
+    /* Ensure full width */
+
+    @media (max-width: 768px) {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+
+        .companyInfo {
+            display: flex;
+            gap: 1rem;
+
+            .logo {
+                width: 48px;
+                height: 48px;
+                /* background-color: #e0e7ff; REMOVED background */
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                /* Clip image to circle */
+            }
+
+            .companyName {
+                font-size: 1.25rem;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                margin-bottom: 0.2rem;
+
+                .star {
+                    color: var(--accent-orange);
+                }
+            }
+
+            .subtext {
+                color: var(--text-secondary);
+                font-size: 0.9rem;
+            }
+        }
+
+        .actions {
+            display: flex;
+            gap: 0.5rem;
+
+            button {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                border: 1px solid var(--border-color);
+                background: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--text-secondary);
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #f9fafb;
+                    color: var(--primary-color);
+                    border-color: var(--primary-color);
+                }
+
+                &.editBtn {
+                    background-color: var(--primary-color);
+                    color: white;
+                    border-color: var(--primary-color);
+
+                    &:hover {
+                        background-color: #0b4d3c;
+                    }
+                }
+            }
+        }
+    }
+
+    .topTabs {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 0.5rem;
+        /* Space for scrollbar */
+
+        /* Hide scrollbar for cleaner look if preferred, but readable is better */
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            gap: 1rem;
+        }
+
+        .tab {
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+
+            &.active {
+                background-color: #e6f0ed;
+                color: var(--primary-color);
+            }
+
+            &:hover:not(.active) {
+                background-color: #f3f4f6;
+            }
+        }
+    }
+
+    .divider {
+        border: none;
+        border-top: 1px solid var(--border-color);
+        margin-bottom: 1.5rem;
+    }
+
+    .infoGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .row {
+            display: flex;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+
+            .label {
+                width: 100px;
+                color: var(--text-secondary);
+                flex-shrink: 0;
+            }
+
+            .link {
+                color: #2563eb;
+                cursor: pointer;
+            }
+
+            .sub {
+                margin-left: 0.5rem;
+                color: var(--text-secondary);
+            }
+        }
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+
+        .checkboxes {
+            display: flex;
+            gap: 1rem;
+
+            label {
+                display: flex;
+                align-items: center;
+                gap: 0.4rem;
+            }
+        }
+
+        .meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .nav {
+                display: flex;
+                gap: 0.5rem;
+
+                button {
+                    border: 1px solid var(--border-color);
+                    background: white;
+                    border-radius: 50%;
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

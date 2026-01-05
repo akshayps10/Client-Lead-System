@@ -1,0 +1,204 @@
+.header {
+    height: 60px;
+    background-color: var(--primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+
+    .left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .newButtonGroup {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            /* Pill shape */
+            overflow: hidden;
+
+            .newMain {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.4rem 0.8rem 0.4rem 1rem;
+                background: none;
+                border: none;
+                color: var(--primary-color);
+                font-weight: 500;
+                font-size: 0.95rem;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #f9fafb;
+                }
+            }
+
+            .separator {
+                width: 1px;
+                height: 20px;
+                background-color: var(--border-color);
+            }
+
+            .newArrow {
+                padding: 0.4rem 0.5rem;
+                background: none;
+                border: none;
+                color: var(--primary-color);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+
+                &:hover {
+                    background-color: #f9fafb;
+                }
+            }
+        }
+
+        .circleBtn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            cursor: pointer;
+
+            &:hover {
+                background-color: #f9fafb;
+            }
+        }
+    }
+
+    .search {
+        position: relative;
+        width: 400px;
+
+        input {
+            width: 100%;
+            padding: 0.6rem 1rem 0.6rem 2.8rem;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            background-color: white;
+            outline: none;
+
+            &:focus {
+                border-color: var(--primary-color);
+            }
+        }
+
+        .searchIcon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+    }
+
+    .right {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        color: var(--text-secondary);
+
+        .iconBtn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                color: var(--text-primary);
+            }
+        }
+
+        .notification {
+            position: relative;
+            cursor: pointer;
+
+            .badge {
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                background-color: var(--danger-red);
+                color: white;
+                font-size: 0.7rem;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .profile {
+            .avatar {
+                width: 32px;
+                height: 32px;
+                /* background-color: #d1d5db; REMOVED */
+                border: 1px solid var(--border-color);
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--text-secondary);
+
+                &:hover {
+                    border-color: var(--primary-color);
+                    color: var(--primary-color);
+                    background-color: #f9fafb;
+                }
+            }
+        }
+
+        .help {
+            cursor: pointer;
+
+            &:hover {
+                color: var(--text-primary);
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 0.5rem 1rem;
+        gap: 1rem;
+        /* Increased gap */
+
+        .search {
+            order: 3;
+            width: 100%;
+            margin-top: 0.5rem;
+
+            input {
+                width: 100%;
+            }
+        }
+
+        .left {
+            margin-right: auto;
+        }
+
+        .right {
+            gap: 0.8rem;
+
+            .help {
+                display: none;
+            }
+        }
+    }
+}

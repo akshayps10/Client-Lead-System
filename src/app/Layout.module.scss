@@ -1,0 +1,30 @@
+.body {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.mainWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    /* Ensure stacking context */
+    width: 0;
+    /* Flexbox trick to prevent overflow in children */
+    min-width: 0;
+}
+
+.mainContent {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    background-color: #f5f7fa;
+
+    @media (max-width: 768px) {
+        padding: 0.5rem;
+        /* Reduce padding on mobile */
+    }
+}

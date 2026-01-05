@@ -1,0 +1,308 @@
+.container {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* Ensure full width */
+
+    .tabs {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+        /* Continuous line */
+        padding-bottom: 0px;
+        /* Align items to line */
+
+        /* Mobile scrollable */
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab {
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding-bottom: 1rem;
+            /* Space text from line */
+            position: relative;
+            transition: color 0.2s;
+
+            &.active {
+                color: var(--primary-color);
+                background-color: transparent;
+                /* Remove pill bg */
+                padding: 0 0 1rem 0;
+                /* Reset padding */
+                border-radius: 0;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -1px;
+                    /* On top of border */
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: var(--primary-color);
+                }
+            }
+
+            &:hover {
+                color: var(--text-primary);
+            }
+        }
+    }
+
+    .tableWrapper {
+        flex: 1;
+        overflow-x: auto;
+        margin-bottom: 1rem;
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+
+            @media (max-width: 768px) {
+                min-width: 100%;
+                display: block;
+
+                thead {
+                    display: none;
+                }
+
+                tbody {
+                    display: block;
+                }
+
+                tr {
+                    display: block;
+                    background: white;
+                    border: 1px solid var(--border-color);
+                    border-radius: 8px;
+                    margin-bottom: 1rem;
+                    padding: 1rem;
+                    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+                    &.selected {
+                        background-color: #eff6ff;
+                        border-color: #2563eb;
+                    }
+                }
+
+                td {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0.5rem 0;
+                    border-bottom: 1px solid #f3f4f6;
+                    text-align: right;
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+
+                    /* Hide checkbox cell in card view if desired, or keep it */
+                    &.checkboxCell {
+                        justify-content: flex-start;
+                        border-bottom: 1px solid var(--border-color);
+                        margin-bottom: 0.5rem;
+                    }
+
+                    &::before {
+                        content: attr(data-label);
+                        font-weight: 600;
+                        color: var(--text-secondary);
+                        text-align: left;
+                        margin-right: 1rem;
+                    }
+                }
+            }
+
+            th {
+                text-align: left;
+                padding: 1rem;
+                color: var(--text-secondary);
+                font-weight: 500;
+                font-size: 0.9rem;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            td {
+                padding: 1rem;
+                border-bottom: 1px solid var(--border-color);
+                font-size: 0.95rem;
+            }
+
+            tbody tr {
+                cursor: pointer;
+                transition: background-color 0.2s;
+
+                &:hover {
+                    background-color: #f9fafb;
+                }
+
+                &.selected {
+                    background-color: #eff6ff;
+                }
+            }
+
+            .badge {
+                padding: 0.25rem 0.6rem;
+                border-radius: 4px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.3rem;
+
+                &.open {
+                    background-color: #e0e7ff;
+                    color: #3730a3;
+
+                    &::before {
+                        content: '€';
+                    }
+                }
+
+                &.lost {
+                    background-color: #fee2e2;
+                    color: #991b1b;
+
+                    &::before {
+                        content: '✕';
+                    }
+                }
+
+                &.sold {
+                    background-color: #d1fae5;
+                    color: #065f46;
+
+                    &::before {
+                        content: '✓';
+                    }
+                }
+
+                &.stalled {
+                    background-color: #ffedd5;
+                    color: #9a3412;
+
+                    &::before {
+                        content: '▽';
+                    }
+                }
+            }
+        }
+    }
+
+    .actions {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin-top: auto;
+
+        @media (max-width: 768px) {
+            justify-content: flex-start;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            width: 100%;
+
+            /* Hide spacer */
+            div {
+                display: none;
+            }
+
+            button {
+                height: 40px;
+                padding: 0 0.5rem;
+                font-size: 0.85rem;
+                justify-content: center;
+                flex: 1 0 auto;
+                /* Grow to fill line */
+                min-width: 100px;
+            }
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .addBtn {
+            background-color: white;
+            border: 1px solid var(--accent-orange);
+            color: var(--accent-orange);
+
+            &:hover {
+                background-color: #fff7ed;
+            }
+        }
+
+        .actionBtn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+
+            &:hover {
+                color: var(--text-primary);
+            }
+        }
+
+        .refreshBtn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+
+            &:hover {
+                color: var(--text-primary);
+            }
+        }
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 1rem;
+
+    button {
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--border-color);
+        background: white;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: var(--text-primary);
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        &:hover:not(:disabled) {
+            background-color: #f9fafb;
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+    }
+}
